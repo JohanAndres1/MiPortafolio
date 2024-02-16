@@ -1,0 +1,23 @@
+---
+import ExperienceItem from './ExperienceItem.astro';
+
+const EXPERIENCE = [
+  {
+    date: 'Octubre  2023 - Noviembre 2023',
+    title: 'Desarrollador Web Frontend',
+    company: 'Freelancer',
+    description:
+      'Creación de una página web, e implementación de carrito de compras con el fin de permitirle al usuario de la plataforma comprar membresías que manejaba la persona. Utilice ReactJS, Redux, State, LocalStorage, CSS3, Bootstrap, ReactBootstrap y JSON. La página cuanta con diseño responsivo.'
+  }
+];
+---
+
+<ol class="relative mt-10">
+  {
+    EXPERIENCE.map((experience) => (
+      <li>
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

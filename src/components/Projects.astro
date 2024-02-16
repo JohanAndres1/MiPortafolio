@@ -1,0 +1,107 @@
+---
+import REACTJS from './icons/React.astro';
+import CSS from './icons/CSS.astro';
+import HTML5 from './icons/HTML.astro';
+import JS from './icons/JS.astro';
+import NODEJS from './icons/Node.astro';
+import BT from './icons/Bootstrap.astro';
+import LinkButton from './LinkButton.astro';
+import GitHub from './icons/GitHub.astro';
+import Link from './icons/Link.astro';
+
+const TAGS = {
+  REACT: {
+    name: 'React.js',
+    icon: REACTJS
+  },
+  CSS: {
+    name: 'CSS3',
+    icon: CSS
+  },
+  HTML: {
+    name: 'HTML5',
+    icon: HTML5
+  },
+  JAVASCRIPT: {
+    name: 'JavaScript',
+    icon: JS
+  },
+  NODE: {
+    name: 'Node.js',
+    icon: NODEJS
+  },
+  BOOTSTRAP: {
+    name: 'Bootstrap',
+    icon: BT
+  }
+};
+const PROJECTS = [
+  {
+    name: 'Home Page',
+    description: 'Construí una página web interactiva de inicio de comercio electrónico, utilizando HTML5, CSS3, GRID y JavaScript, con el fin de generar ventas de muebles y accesorios de casa.',
+    link: 'https://room-home-page-tau.vercel.app',
+    github: 'https://github.com/JohanAndres1/Room-home-page',
+    image: '/shotsHomePage.webp',
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT]
+  }
+];
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ name, description, link, github, image, tags }) => (
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-500 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+              alt={`Imagen del proyecto ${name}`}
+              loading="lazy"
+              src={image}
+            />
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold text-indigo-700 dark:text-indigo-300/90">
+            {name}
+          </h3>
+          <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-row gap-x-2 mb-2">
+              {tags.map((tag) => (
+                <li
+                  class={`
+                    relative bg-gray-300 dark:bg-neutral-400 rounded-full overflow-hidden border border-black/50
+                    before:content[''] before:absolute before:z-10 before:w-10 before:h-10 before:right-1 before:bottom-1 dark:before:bg-purple-600 before:rounded-full before:blur-md 
+                    after:content[''] after:absolute after:z-10 after:h-10 after:w-10 after:left-2 after:top-1 dark:after:bg-indigo-600 after:rounded-full after:blur-md
+                  `}
+                >
+                  <span
+                    class={`relative z-20 flex gap-x-2 text-xs font-semibold py-1 px-2 dark:text-white`}
+                  >
+                    {tag.name}
+                    <tag.icon class="size-4" />
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p class="mt-2">{description}</p>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <GitHub class="size-5" />
+                  Codigo
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>

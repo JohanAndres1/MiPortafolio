@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import Home from '../components/Home.astro';
+import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
+import Code from '../components/icons/Code.astro';
+import Briefcase from '../components/icons/Briefcase.astro';
+import Profile from '../components/icons/Profile.astro';
+import AboutMe from '../components/AboutMe.astro';
+import Footer from '@/components/Footer.astro';
+---
+
+<Layout
+  title="Portafolio de Johan - Desarrollador y Programador Web"
+  description="Contrata a Johan para crear tu aplicacion web. Desarrollador Web"
+>
+  <main class="px-4">
+    <SectionContainer class="py-16 md:py-36">
+      <Home />
+    </SectionContainer>
+
+    <div class="space-y-20">
+      <SectionContainer id="experiencia">
+        <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3">
+          <Briefcase class="size-6 md:size-8" />
+          Experiencia laboral
+        </h2>
+        <Experience />
+      </SectionContainer>
+
+      <SectionContainer id="proyectos">
+        <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3">
+          <Code class="size-6 md:size-8" />
+          Proyectos
+        </h2>
+        <Projects />
+      </SectionContainer>
+
+      <SectionContainer id="sobre-mi">
+        <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3">
+          <Profile class="size-6 md:size-8" />
+          Sobre mí
+        </h2>
+        <AboutMe />
+        <Footer />
+      </SectionContainer>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,61 @@
+---
+import ThemeToogle from './ThemeToggle.astro';
+
+const navItems = [
+  {
+    title: 'Inicio',
+    label: 'inicio',
+    url: '/#'
+  },
+  {
+    title: 'Experiencia',
+    label: 'experiencia',
+    url: '/#experiencia'
+  },
+  {
+    title: 'Proyectos',
+    label: 'proyectos',
+    url: '/#proyectos'
+  },
+  {
+    title: 'Sobre mí',
+    label: 'sobre-mi',
+    url: '/#sobre-mi'
+  }
+];
+---
+
+<header
+  class="fixed top-0 z-30 flex items-center justify-center w-full mx-auto mt-2"
+>
+  <nav
+    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
+  >
+    {
+      navItems.map(({ title, label, url }) => (
+        <a
+          class="relative block py-2 px-2 transition hover:text-indigo-700 dark:hover:text-indigo-300/90"
+          aria-label={label}
+          href={url}
+        >
+          {title}
+        </a>
+      ))
+    }
+    <ThemeToogle />
+  </nav>
+</header>
+
+<style>
+  nav {
+    animation: nav-shadown 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  @keyframes nav-shadown {
+    to {
+      @apply shadow-xl ring-1 backdrop-blur bg-gray-300/60 dark:bg-gray-800/60 ring-white/10;
+    }
+  }
+</style>

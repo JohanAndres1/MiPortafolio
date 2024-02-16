@@ -1,0 +1,7 @@
+---
+const { id, class: className } = Astro.props;
+---
+
+<section id={id} class={` ${className} w-full mx-auto lg:w-[740px] py-10`}>
+  <slot />
+</section>
