@@ -1,0 +1,44 @@
+---
+import ASTRO from './icons/AstroJS.astro'
+import BT from './icons/Bootstrap.astro'
+import CSS from './icons/CSS.astro'
+import GIT from './icons/Git.astro'
+import GitHub from './icons/GitHub.astro'
+import HTML from './icons/HTML.astro'
+import JS from './icons/JS.astro'
+import REACTJS from './icons/React.astro'
+import NODEJS from './icons/Node.astro'
+import TAILWIND from './icons/Tailwind.astro'
+import TS from './icons/TS.astro'
+
+type IconName = keyof typeof ICONS
+
+const ICONS = {
+  AstroJS: ASTRO,
+  Bootstrap: BT,
+  CSS: CSS,
+  Git: GIT,
+  GitHub: GitHub,
+  HTML: HTML,
+  JS: JS,
+  ReactJS: REACTJS,
+  NodeJS: NODEJS,
+  Tailwind: TAILWIND,
+  TS: TS
+}
+
+const { icon } = Astro.props as { icon: IconName }
+const IconComponent = ICONS[icon]
+---
+
+<div
+  class={
+    `relative bg-gray-300 dark:bg-neutral-400 rounded-full overflow-hidden border border-black/50
+    before:content[''] before:absolute before:z-10 before:w-5 before:h-5 before:right-1 before:bottom-0 dark:before:bg-purple-600 before:rounded-full before:blur-[8px] 
+    after:content[''] after:absolute after:z-10 after:h-5 after:w-5 after:left-1 after:top-0 dark:after:bg-indigo-600 after:rounded-full after:blur-[8px]`
+  }
+>
+  <span class={`relative flex z-20 p-2 dark:text-white`}>
+    <IconComponent class="size-4 sm:size-5 lg:size-6" />
+  </span>
+</div>
